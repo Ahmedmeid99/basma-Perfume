@@ -138,8 +138,24 @@ export default function Navbar() {
         <div className="navbar-container">
           {/* Logo & Location */}
           <div className="nav-left">
-            <Link to="/" className="nav-brand-new">
-              {t.brand}
+            <Link
+              to="/"
+              className="nav-brand-new"
+              style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}
+            >
+              <img
+                src="/logo.png"
+                alt="Pasma Perfume Logo"
+                className="nav-logo-img"
+                style={{
+                  height: "42px",
+                  width: "42px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "1.5px solid var(--primary-color)",
+                }}
+              />
+              <span>{t.brand}</span>
             </Link>
             <div className="location-badge">
               <MapPin size={14} className="location-icon" />

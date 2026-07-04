@@ -9,7 +9,27 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top-grid">
           <div className="footer-col brand-col">
-            <div className="footer-logo">
+            <div
+              className="footer-logo"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "0.5rem",
+              }}
+            >
+              <img
+                src="/logo.png"
+                alt="Pasma Perfume Logo"
+                style={{
+                  height: "60px",
+                  width: "60px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "2px solid var(--primary-color)",
+                  marginBottom: "0.5rem",
+                }}
+              />
               <span
                 style={{
                   fontSize: "1.6rem",

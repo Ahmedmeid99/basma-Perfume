@@ -22,15 +22,6 @@ export default function Home() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Slideshow
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const heroImages = [
-    "/hero-1.jpg",
-    "/hero-2.jpg",
-    "/hero-3.jpg",
-    "/hero-4.jpg",
-  ];
-
   // Category + Products state
   const [categories, setCategories] = useState([]);
   const [categoryProducts, setCategoryProducts] = useState({}); // { [categoryId]: product[] }
@@ -41,14 +32,6 @@ export default function Home() {
   // Sync Search Query from Navbar Search Input (URL param)
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search") || "";
-
-  // Auto-scroll slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Load wishlist from localStorage
   useEffect(() => {
@@ -169,34 +152,6 @@ export default function Home() {
 
   return (
     <div className="home-redesigned-page">
-      {/* Hero Section */}
-      <section className="hero-compact">
-        {heroImages.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`SAM Perfumes product banner ${index + 1}`}
-            className="hero-bg"
-            style={{
-              opacity: index === currentSlide ? 0.45 : 0,
-              transform: index === currentSlide ? "scale(1)" : "scale(1.05)",
-              transition:
-                "opacity 1.2s ease-in-out, transform 1.2s ease-in-out",
-              zIndex: index === currentSlide ? 2 : 1,
-            }}
-          />
-        ))}
-        <div className="hero-overlay"></div>
-        <div className="container hero-content">
-          <span className="hero-subtitle">{t.heroSubtitle}</span>
-          <h1 className="hero-title">{t.heroTitle}</h1>
-          <p className="hero-desc">{t.heroDesc}</p>
-          <a href="/perfumes" className="cta-button-redesigned">
-            {t.beginJourney}
-          </a>
-        </div>
-      </section>
-
       {/* All Categories + Products Section */}
       <section id="catalog-section" className="catalog-section-wrapper">
         <div className="container">

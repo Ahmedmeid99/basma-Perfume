@@ -44,7 +44,7 @@ export default function Gallery() {
     <div
       className="gallery-page-redesigned-wrapper"
       style={{
-        paddingTop: "140px",
+        padding: "140px",
         minHeight: "100vh",
         background: "var(--bg-color)",
       }}
